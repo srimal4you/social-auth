@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once('config.php');
 require 'vendor/autoload.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 
@@ -14,7 +14,7 @@ if (isset($_REQUEST['oauth_token']) && $request_token['oauth_token'] !== $_REQUE
 
 $sonsumer_key = "jniNzn5q8fh78FNBxm9rKjLDa";
 $consumer_secret = "ZOzz3DG2kuVyqILN4UB6OtfTJHTGRHuLfmDHChLtmLW6ufb2Vs";
-$auth_callback = "http://localhost/facebook-login/twitter_endpoint.php";
+$auth_callback = BASE_URL."twitter_endpoint.php";
 
 $connection = new TwitterOAuth($sonsumer_key, $consumer_secret, $request_token['oauth_token'], $request_token['oauth_token_secret']);
 

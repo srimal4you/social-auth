@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once('config.php');
 require_once('vendor/autoload.php');
 use Abraham\TwitterOAuth\TwitterOAuth;
 
@@ -13,14 +13,14 @@ $fb = new Facebook\Facebook([
 $helper = $fb->getRedirectLoginHelper();
 
 $permissions = ['email']; // Optional permissions
-$fb_loginUrl = $helper->getLoginUrl('http://localhost/facebook-login/endpoint.php', $permissions);
+$fb_loginUrl = $helper->getLoginUrl(BASE_URL.'endpoint.php', $permissions);
 
 //++++++++++++++++++++++++++++ Google Script ++++++++++++++++++++++++++++++++++=
 
 $client = new Google_Client();
 $client->setClientId('888194408667-o8adrft7ktb2635ehcsahofhdhg8brem.apps.googleusercontent.com');
 $client->setClientSecret('pJ_MA7k2B_-H3VzSaiCZwyKP');
-$client->setRedirectUri('http://localhost/facebook-login/google.php');
+$client->setRedirectUri(BASE_URL.'google.php');
 $client->addScope("email");
 $client->addScope("profile");
 
@@ -31,7 +31,7 @@ $service = new Google_Service_Oauth2($client);
 
 $sonsumer_key = "jniNzn5q8fh78FNBxm9rKjLDa";
 $consumer_secret = "ZOzz3DG2kuVyqILN4UB6OtfTJHTGRHuLfmDHChLtmLW6ufb2Vs";
-$auth_callback = "http://localhost/facebook-login/twitter_endpoint.php";
+$auth_callback = BASE_URL."twitter_endpoint.php";
 
 $connection = new TwitterOAuth($sonsumer_key, $consumer_secret);
 $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => $auth_callback));

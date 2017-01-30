@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once('config.php');
 session_destroy();
-// unset($_SESSION['fb_access_token']);
-header("Location:index.php");
+
+header("Location:".BASE_URL);
