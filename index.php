@@ -122,4 +122,5 @@ $twitter_url = $connection->url('oauth/authorize', array('oauth_token' => $reque
 		</div>
     </div>
 </body>
+
 </html>
