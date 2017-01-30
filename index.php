@@ -105,7 +105,7 @@ $twitter_url = $connection->url('oauth/authorize', array('oauth_token' => $reque
 					</div>
                     <!-- <span class="help-block">Password error</span> -->
 
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+					<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 10px;">Login</button>
 				</form>
 			</div>
     	</div>
